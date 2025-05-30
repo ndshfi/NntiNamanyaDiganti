@@ -35,6 +35,8 @@
             color: var(--text-dark);
             font-family: 'Poppins', sans-serif;
             overflow-x: hidden !important;
+            width: 100%;
+            position: relative;
         }
 
         .header {
@@ -83,6 +85,7 @@
             position: relative;
             margin-top: 0;
             overflow: hidden;
+            width: 100%;
         }
 
         .hero-img {
@@ -95,6 +98,11 @@
             z-index: 1;
             opacity: 0.8;
             background: transparent;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            pointer-events: none;
         }
 
         .hero-img spline-viewer {
@@ -106,6 +114,14 @@
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            will-change: transform;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .hero-content {
@@ -286,6 +302,7 @@
                 width: 90%;
                 right: -25%;
                 transform: translateY(-50%) scale(1.3);
+                opacity: 0.6;
             }
         }
 
@@ -297,11 +314,19 @@
                 padding: 0 1rem;
             }
 
+            .hero {
+                padding: 6rem 2rem 4rem;
+            }
+
             .hero-img {
-                width: 100%;
-                right: -30%;
-                transform: translateY(-50%) scale(1.2);
+                width: 80%;
+                right: -15%;
+                transform: translateY(-50%) scale(0.9);
                 opacity: 0.4;
+                -webkit-transform: translateY(-50%) scale(0.9) translateZ(0);
+                transform: translateY(-50%) scale(0.9) translateZ(0);
+                max-width: 100vw;
+                overflow: hidden;
             }
 
             .hero-content {
@@ -326,11 +351,20 @@
                 padding: 0 0.5rem;
             }
 
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
             .hero-img {
+                width: 90%;
                 width: 110%;
-                right: -35%;
+                right: -10%;
                 transform: translateY(-50%) scale(1.1);
                 opacity: 0.3;
+                -webkit-transform: translateY(-50%) scale(1.1) translateZ(0);
+                transform: translateY(-50%) scale(1.1) translateZ(0);
+                max-width: 100vw;
+                overflow: hidden;
             }
 
             .logo img {
@@ -344,9 +378,20 @@
 
         @media (max-width: 480px) {
             .hero {
-                padding: 4rem 1rem;
+                padding: 5rem 1rem 2rem;
             }
-            
+
+            .hero-img {
+                width: 120%;
+                right: -5%;
+                transform: translateY(-50%) scale(1);
+                opacity: 0.3;
+                -webkit-transform: translateY(-50%) scale(1) translateZ(0);
+                transform: translateY(-50%) scale(1) translateZ(0);
+                max-width: 100vw;
+                overflow: hidden;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -490,6 +535,7 @@
             height: 100%;
             position: relative;
             overflow: hidden;
+            margin: 1rem;
         }
 
         .testimonial-card::before {
@@ -569,11 +615,161 @@
         @media (max-width: 768px) {
             .testimonial-card {
                 padding: 1.5rem;
+                margin: 0.5rem;
             }
 
             .testimonial-image {
                 width: 60px;
                 height: 60px;
+            }
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            padding: 1rem 0;
+            position: relative;
+        }
+
+        .carousel-inner {
+            padding: 1rem 0;
+        }
+
+        .carousel-controls {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .carousel-indicators {
+            position: relative;
+            margin: 0;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-indicators button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            opacity: 0.5;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicators button.active {
+            opacity: 1;
+            background-color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 1.5rem;
+                margin: 0.5rem;
+            }
+
+            .testimonial-image {
+                width: 60px;
+                height: 60px;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 35px;
+                height: 35px;
+            }
+
+            .carousel-indicators button {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        /* FAQ Section Styles */
+        .faq-section {
+            padding: 5rem 0;
+            background-color: #fff;
+        }
+
+        .accordion {
+            border: none;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-item {
+            border: none;
+            border-bottom: 1px solid var(--light-color);
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-button {
+            padding: 1.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--secondary-color);
+            background-color: var(--light-color);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: var(--light-color);
+        }
+
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238B4513'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+
+        .accordion-body {
+            padding: 1.5rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .accordion-button {
+                padding: 1.2rem;
+                font-size: 0.95rem;
+            }
+
+            .accordion-body {
+                padding: 1.2rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -620,6 +816,10 @@
                 disable-orbit="true"
                 loading-anim-type="spinner"
                 loading-anim-background="transparent"
+                antialias="true"
+                render-mode="webgl"
+                quality="high"
+                pixel-ratio="2"
             ></spline-viewer>
         </div>
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
@@ -639,8 +839,11 @@
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="about-content">
                         <h2>Tentang Kami</h2>
-                        <p>Nasi Kebuli Ajibarang adalah usaha kuliner yang berdedikasi untuk menyajikan hidangan Nasi Kebuli dengan cita rasa autentik Timur Tengah. Berdiri sejak tahun 2020, kami telah melayani ribuan pelanggan dengan komitmen untuk selalu menggunakan bahan-bahan berkualitas dan menjaga konsistensi rasa.</p>
-                        <p>Dengan pengalaman lebih dari 3 tahun dalam industri kuliner, kami terus berinovasi untuk memberikan pengalaman makan terbaik bagi pelanggan kami.</p>
+                        <p>Nasi Kebuli Ajb (Ajibarang) lahir pada tahun 2020 sebagai usaha kuliner rumahan yang tumbuh melalui penjualan online selama 
+                            masa pandemi. Berkat dukungan pelanggan, terutama dari kalangan mahasiswa UMP dan UHB, kami berkembang dari dapur keluarga 
+                            hingga akhirnya berhasil membuka stand tetap di lingkungan UMP pada tahun 2024. Dengan respon pasar yang sangat positif, 
+                            kami kini melayani kebutuhan kuliner harian maupun pesanan untuk berbagai acara. Kami terus berfokus pada penguatan brand 
+                            dan pengembangan produk, serta berencana menjalin kemitraan sebagai bagian dari ekspansi usaha ke depan.</p>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
@@ -654,12 +857,12 @@
 
     <section class="features">
         <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
-            <h3>Wide Selection</h3>
-            <p>Browse through thousands of products from trusted sellers</p>
+            <h3>Harga Ramah</h3>
+            <p>Harga per porsi yang murah namun tidak mengurangi rasa dan kualitas</p>
         </div>
         <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <h3>Secure Shopping</h3>
-            <p>Shop with confidence with our secure payment system</p>
+            <h3>Dekat Kampus</h3>
+            <p>Akses mudah bagi mahasiswa yang sering lapar dan ingin makan enak</p>
         </div>
         <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
             <h3>Fast Delivery</h3>
@@ -675,44 +878,40 @@
                 <!-- Product Card 1 -->
                 <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3" alt="Nasi Kebuli Special" class="product-image">
+                        <img src="produk/produk-1/kebuli ayam krispi harga 12.000.jpg" alt="Nasi Kebuli Ayam Krispi" class="product-image">
                         <div class="product-info">
-                            <h3>Nasi Kebuli Special</h3>
-                            <p>Nasi Kebuli dengan daging kambing premium dan rempah-rempah pilihan</p>
-                            <p class="price">Rp 35.000</p>
+                            <h3>Nasi Kebuli Ayam Krispi</h3>
+                            <p class="price">Rp 12.000</p>
                         </div>
                     </div>
                 </div>
                 <!-- Product Card 2 -->
                 <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3" alt="Nasi Kebuli Ayam" class="product-image">
+                        <img src="produk/produk-2/kebuli ayam ori harga 12.000.jpg" alt="Nasi Kebuli Ayam Ori" class="product-image">
                         <div class="product-info">
-                            <h3>Nasi Kebuli Ayam</h3>
-                            <p>Nasi Kebuli dengan daging ayam kampung dan bumbu rahasia</p>
-                            <p class="price">Rp 25.000</p>
+                            <h3>Nasi Kebuli Ayam Ori</h3>
+                            <p class="price">Rp 12.000</p>
                         </div>
                     </div>
                 </div>
                 <!-- Product Card 3 -->
                 <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3" alt="Nasi Kebuli Komplit" class="product-image">
+                        <img src="produk/produk-3/kebuli telur ayam krispi harga 12.000.jpg" alt="Nasi Kebuli Telur + Ayam Krispi" class="product-image">
                         <div class="product-info">
-                            <h3>Nasi Kebuli Komplit</h3>
-                            <p>Nasi Kebuli dengan daging kambing, ayam, dan acar timun</p>
-                            <p class="price">Rp 45.000</p>
+                            <h3>Nasi Kebuli Telur Ayam Krispi</h3>
+                            <p class="price">Rp 12.000</p>
                         </div>
                     </div>
                 </div>
                 <!-- Product Card 4 -->
                 <div class="col-6 col-md-3 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
                     <div class="product-card">
-                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3" alt="Nasi Kebuli Paket" class="product-image">
+                        <img src="produk/produk-4/kebuli ayam katsu harga 12.000.jpg" alt="Nasi Kebuli Ayam Katsu" class="product-image">
                         <div class="product-info">
-                            <h3>Nasi Kebuli Paket</h3>
-                            <p>Paket hemat untuk 4 orang dengan lauk pauk lengkap</p>
-                            <p class="price">Rp 150.000</p>
+                            <h3>Nasi Kebuli Ayam Katsu</h3>
+                            <p class="price">Rp 12.000</p>
                         </div>
                     </div>
                 </div>
@@ -727,7 +926,9 @@
     <section class="testimonials-section" id="testimonials">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Testimoni Pelanggan</h2>
-            <div class="row">
+            
+            <!-- Desktop View -->
+            <div class="row d-none d-md-flex">
                 <!-- Testimonial 1 -->
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
                     <div class="testimonial-card">
@@ -742,9 +943,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <p class="testimonial-text">"Nasi Kebuli Ajibarang benar-benar luar biasa! Rasa rempahnya sangat autentik dan dagingnya empuk. Sudah menjadi menu favorit keluarga kami."</p>
-                            <h4 class="customer-name">Ahmad Rizki</h4>
-                            <p class="customer-title">Pelanggan Setia</p>
+                            <p class="testimonial-text">"Enak nasinya, makin berasa rempahnya, kering kentangnya kriuk pedes, sambelnya nagih, ayam krispy nya juga kriuk, ga keras, dagingnya tetep empuk. Rasanya ga cukup seporsi kalo makan nasi kebuli, pengen nambah lagii"</p>
                         </div>
                     </div>
                 </div>
@@ -763,9 +962,7 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <p class="testimonial-text">"Kualitas konsisten setiap kali saya memesan. Pelayanan cepat dan ramah. Nasi Kebuli Ajibarang selalu menjadi pilihan untuk acara keluarga."</p>
-                            <h4 class="customer-name">Siti Nurhaliza</h4>
-                            <p class="customer-title">Food Blogger</p>
+                            <p class="testimonial-text">"Nasinya enak + gurih, sambelnya enakk. Kemaren aku pesen yang varian telor, untuk harga segitu pas aja sih. Bisaa kalo order lagii"</p>
                         </div>
                     </div>
                 </div>
@@ -784,9 +981,160 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <p class="testimonial-text">"Rasa Nasi Kebuli Ajibarang sangat otentik, persis seperti yang saya makan di Timur Tengah. Bumbunya sangat kaya dan aromatik."</p>
-                            <h4 class="customer-name">Budi Santoso</h4>
-                            <p class="customer-title">Chef Profesional</p>
+                            <p class="testimonial-text">"Kemaren aku udah nyobain nasi kebuli punya kamu bareng temen-temen, 11/10 sii enak banget mana harganya ramah lagii"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Carousel View -->
+            <div class="d-md-none">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Testimonial 1 -->
+                        <div class="carousel-item active">
+                            <div class="testimonial-card">
+                                <div class="testimonial-image">
+                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3" alt="Customer 1">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Nasi Kebuli Ajibarang benar-benar luar biasa! Rasa rempahnya sangat autentik dan dagingnya empuk. Sudah menjadi menu favorit keluarga kami."</p>
+                                    <h4 class="customer-name">Ahmad Rizki</h4>
+                                    <p class="customer-title">Pelanggan Setia</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <div class="testimonial-image">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3" alt="Customer 2">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Kualitas konsisten setiap kali saya memesan. Pelayanan cepat dan ramah. Nasi Kebuli Ajibarang selalu menjadi pilihan untuk acara keluarga."</p>
+                                    <h4 class="customer-name">Siti Nurhaliza</h4>
+                                    <p class="customer-title">Food Blogger</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <div class="testimonial-image">
+                                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3" alt="Customer 3">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Rasa Nasi Kebuli Ajibarang sangat otentik, persis seperti yang saya makan di Timur Tengah. Bumbunya sangat kaya dan aromatik."</p>
+                                    <h4 class="customer-name">Budi Santoso</h4>
+                                    <p class="customer-title">Chef Profesional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="carousel-controls">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                    Bukanya hari apa aja kak?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Kami buka setiap hari kecuali hari sabtu ya kak, mulai dari jam 09:00 - 20:00 WIB
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    Bisa DO gak kak?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Bisa kak, dan free ongkir khusus area kampus 1 Universitas Muhammadiyah Purwokerto
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    Lokasinya dimana kak?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Di belakang UMP kak, dari perempatan lampu merah belok ke arah selatan tidak jauh dari situ belok ke arah timur tinggal lurus aja kak, buat titik pastinya ada di google maps ya kak, link nya ada di bio Instagram @nasikebuliajb
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    Best Seller nya apa kak?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Nasi kebuli ayam geprek, cuma 12ribuan aja, yok Cobain
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
