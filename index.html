@@ -772,6 +772,137 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* Timeline Styles */
+        .timeline-section {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            overflow-x: hidden;
+        }
+
+        .timeline-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            background: var(--primary-color);
+            top: 40px;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .timeline-item {
+            position: relative;
+            flex: 1;
+            min-width: 200px;
+            padding-top: 60px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            left: 50%;
+            top: 40px;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--secondary-color);
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .timeline-subtitle {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .timeline-content p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+        }
+
+        @media (max-width: 992px) {
+            .timeline {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .timeline-item {
+                flex: 0 0 calc(50% - 1rem);
+                margin-bottom: 2rem;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .timeline-dot {
+                top: 0;
+            }
+
+            .timeline-item {
+                padding-top: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .timeline-item {
+                flex: 0 0 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -849,6 +980,57 @@
                 <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                     <div class="about-image">
                         <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3" alt="Nasi Kebuli" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <h3 class="timeline-title">Perjalanan Kami</h3>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2020</h4>
+                            <p class="timeline-subtitle">Awal Mula</p>
+                            <p>Nasi Kebuli AJB dirintis sebagai usaha rumahan saat pandemi. Berawal dari dapur keluarga, penjualan dilakukan lewat sistem pre-order dan online.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2021-2022</h4>
+                            <p class="timeline-subtitle">Perkembangan Digital</p>
+                            <p>Usaha terus berjalan dengan promosi digital dan mulai dikenal di kalangan warga serta mahasiswa sekitar Purwokerto, terutama UMP dan UHB.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2023</h4>
+                            <p class="timeline-subtitle">Ekspansi Event</p>
+                            <p>Mulai aktif ikut event kampus seperti bazar dan Sunmor di UMP. Dari sini muncul ide untuk membuka stand tetap di sekitar kampus.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2024</h4>
+                            <p class="timeline-subtitle">Stand Tetap</p>
+                            <p>Kebuli AJB resmi hadir di lingkungan UMP. Respon pasar sangat baik, terutama dari mahasiswa. Mulai rutin melayani pesanan event dan konsumsi harian.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2025</h4>
+                            <p class="timeline-subtitle">Visi Ke Depan</p>
+                            <p>Fokus pada penguatan brand, pengembangan produk baru, dan rencana kemitraan dengan mahasiswa sebagai bagian dari ekspansi usaha.</p>
+                        </div>
                     </div>
                 </div>
             </div>
