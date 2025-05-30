@@ -1,381 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test - 3D Nasi Kebuli Ajb</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo/logo-nasi-kebuli-ajb.png">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        :root {
-            --primary-blue: #1a73e8;
-            --secondary-blue: #4285f4;
-            --light-blue: #e8f0fe;
-        }
-
-        body {
-            line-height: 1.6;
-        }
-
-        .header {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .nav-links a {
-            color: whitebf;
-            text-decoration: none;
-            main-left: 2rem;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .spline-container {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .spline-container iframe {
-            width: 100%;
-            height: 100%;
-        }
-
-        .hero-content {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-            text-align: right;
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            margin-bottom: 2rem;
-            color: white;
-        }
-
-        .cta-button {
-            background-color: white;
-            color: var(--primary-blue);
-            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
-            border: none;
-            border-radius: 5px;
-            font-size: clamp(1rem, 2vw, 1.1rem);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .features {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background-color: var(--light-blue);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-        }
-
-        .footer {
-            background-color: var(--primary-blue);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        /* Bootstrap Overrides */
-        .navbar {
-            background-color: var(--primary-blue) !important;
-        }
-
-        .navbar-brand {
-            color: white !important;
-            font-weight: bold;
-        }
-
-        .nav-link {
-            color: white !important;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero-content {
-                text-align: center;
-                margin: 0 auto;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .features {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 6rem 1rem 3rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 4rem 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero-content {
-                padding: 1.5rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            .features {
-                padding: 0 1rem;
-                gap: 1rem;
-            }
-
-            .feature-card {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-content {
-                padding: 1rem;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .navbar-brand {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* Fix for Spline container on mobile */
-        @media (max-width: 768px) {
-            .spline-container {
-                height: 100vh;
-            }
-        }
-    </style>
+    <title>Nasi Kebuli Ajibarang - Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="logo/logo-nasi-kebuli-ajb.png" alt="Nasi Kebuli Ajibarang">
+                    <div class="logo-text">
+                        <h1>Nasi Kebuli Ajibarang</h1>
+                    </div>
+                </div>
+                <div class="nav-cart">
+                    <button class="cart-btn" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Free Shipping Notification Bar -->
+    <div class="free-shipping-bar">
+        <i class="fas fa-shipping-fast"></i>
+        Gratis Ongkir Seluruh Wilayah UMP - Pesan Sekarang!
+    </div>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
         <div class="container">
-            <a class="navbar-brand" href="#">Nasi Kebuli Ajb</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#products">Pemesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Komunitas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
+            <div class="products-header">
+                <h1 class="section-title">Menu Nasi Kebuli Ajibarang</h1>
+                <p class="section-subtitle">Pilihan nasi kebuli dan briyani terbaik dengan harga terjangkau</p>
+                
+                <!-- Sort and Filter Controls -->
+                <div class="controls">
+                    <div class="sort-controls">
+                        <label for="sortSelect">
+                            <i class="fas fa-sort"></i>
+                            Urutkan:
+                        </label>
+                        <select id="sortSelect" onchange="sortProducts()">
+                            <option value="default">Default</option>
+                            <option value="name-asc">Nama A-Z</option>
+                            <option value="name-desc">Nama Z-A</option>
+                            <option value="price-asc">Harga Terendah</option>
+                            <option value="price-desc">Harga Tertinggi</option>
+                        </select>
+                    </div>
+                    <div class="filter-controls">
+                        <label for="filterSelect">
+                            <i class="fas fa-filter"></i>
+                            Filter:
+                        </label>
+                        <select id="filterSelect" onchange="filterProducts()">
+                            <option value="all">Semua Menu</option>
+                            <option value="kebuli">Nasi Kebuli</option>
+                            <option value="briyani">Nasi Briyani</option>
+                            <option value="12000">Rp 12.000</option>
+                            <option value="15000">Rp 15.000</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
             </div>
         </div>
-    </nav>
+    </section>
 
-    <section class="hero" id="home">
-        <div class="spline-container">
-            <iframe src='https://my.spline.design/untitled-XkGchnsNzJpayAMSMiikEhJv/' frameborder='0'></iframe>
-        </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
         <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <h1>Nasi Kebuli Ajb</h1>
-                        <p>Your one-stop destination for all your shopping needs</p>
-                        <button class="cta-button" id="shopNowBtn">Shop Now</button>
-                    </div>
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>083822457915</p>
+                    <a href="https://wa.me/6283822457915" target="_blank" class="btn-contact">Chat Sekarang</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Lokasi</h3>
+                    <p>Stand UMP, Ajibarang, Purwokerto</p>
+                    <a href="https://maps.app.goo.gl/SRTdvUhShwAnmsWX9" target="_blank" class="btn-contact">Lihat di Maps</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Jam Operasional</h3>
+                    <p>Senin - Minggu<br>08:00 - 20:00</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features">
-        <div class="feature-card">
-            <h3>Wide Selection</h3>
-            <p>Browse through thousands of products from trusted sellers</p>
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Keranjang Belanja</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        <div class="feature-card">
-            <h3>Secure Shopping</h3>
-            <p>Shop with confidence with our secure payment system</p>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Keranjang masih kosong</p>
+                <small>Tambahkan produk untuk mulai berbelanja</small>
+            </div>
         </div>
-        <div class="feature-card">
-            <h3>Fast Delivery</h3>
-            <p>Get your products delivered quickly and reliably</p>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-total">
+                <h4>Total: Rp <span id="cartTotal">0</span></h4>
+            </div>
+            
+            <!-- Simple Checkout Buttons -->
+            <div class="checkout-buttons">
+                <div class="btn-checkout whatsapp" id="staticWhatsappButton" onclick="testButtonClick('Static WhatsApp')">
+                    <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                </div>
+                <div class="btn-checkout gofood" id="staticGofoodButton" onclick="testButtonClick('Static GoFood')">
+                    Pesan via GoFood
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <footer class="footer">
-        <p>&copy; 2024 MarketPlace. All rights reserved.</p>
-    </footer>
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Vanilla JavaScript -->
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <!-- WhatsApp Modal -->
+    <div class="modal-overlay" id="whatsappModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Pesan via WhatsApp</h3>
+                <p>Isi informasi dasar untuk melanjutkan pemesanan</p>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="modalName">Nama Lengkap</label>
+                    <input type="text" id="modalName" placeholder="Masukkan nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalAddress">Alamat</label>
+                    <textarea id="modalAddress" rows="3" placeholder="Masukkan alamat lengkap Anda" required></textarea>
+                </div>
+            </form>
+            <div class="modal-buttons">
+                <button class="btn-modal btn-cancel" onclick="closeWhatsAppModal()">Batal</button>
+                <button class="btn-modal btn-continue" onclick="sendToWhatsApp()">Kirim ke WhatsApp</button>
+            </div>
+        </div>
+    </div>
 
-        // Shop Now button click handler
-        document.getElementById('shopNowBtn').addEventListener('click', function() {
-            alert('Welcome to our marketplace! Browse our products now.');
-        });
-
-        // Add animation to feature cards on scroll
-        const observerOptions = {
-            threshold: 0.5
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.5s ease-out';
-            observer.observe(card);
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'rgba(26, 115, 232, 0.95)';
-            } else {
-                navbar.style.backgroundColor = 'var(--primary-blue)';
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html> 
