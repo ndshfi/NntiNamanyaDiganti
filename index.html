@@ -139,7 +139,6 @@
             margin-bottom: 1rem;
             line-height: 1.2;
             font-weight: 700;
-            z-index: 1000;
         }
 
         .hero p {
@@ -147,7 +146,6 @@
             margin-bottom: 2rem;
             max-width: 600px;
             font-weight: 400;
-            z-index: 1000;
         }
 
         .cta-button {
@@ -899,31 +897,27 @@
     </nav>
 
 <section class="hero" id="home">
-        <div class="container hero-container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-                        <h1>Nasi Kebuli Ajibarang</h1>
-                        <p>Nikmati kelezatan Nasi Kebuli dengan cita rasa autentik Timur Tengah. Pesan sekarang untuk pengalaman kuliner yang tak terlupakan!</p>
-                        <button class="cta-button" id="shopNowBtn">Lihat Lebih Jauh</button>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-img">
-                        <spline-viewer 
-                            url="https://prod.spline.design/XGLZZY7LvhgdUYco/scene.splinecode"
-                            events-target="global"
-                            camera-position="[0,0,5]"
-                            camera-target="[0,0,0]"
-                            disable-zoom="true"
-                            disable-pan="true"
-                            disable-orbit="true"
-                            loading-anim-type="spinner"
-                            loading-anim-background="transparent"
-                        ></spline-viewer>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-img">
+            <spline-viewer 
+                url="https://prod.spline.design/XGLZZY7LvhgdUYco/scene.splinecode"
+                events-target="global"
+                camera-position="[0,0,5]"
+                camera-target="[0,0,0]"
+                disable-zoom="true"
+                disable-pan="true"
+                disable-orbit="true"
+                loading-anim-type="spinner"
+                loading-anim-background="transparent"
+                antialias="true"
+                render-mode="webgl"
+                quality="high"
+                pixel-ratio="2"
+            ></spline-viewer>
+        </div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1>Nasi Kebuli Ajibarang</h1>
+            <p>Nikmati kelezatan Nasi Kebuli dengan cita rasa autentik Timur Tengah. Pesan sekarang untuk pengalaman kuliner yang tak terlupakan!</p>
+            <a class="cta-button" id="shopNowBtn" href="#about">Lihat Lebih Jauh</a>
         </div>
     </section>
 
