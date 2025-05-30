@@ -20,7 +20,7 @@
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-
+    
         :root {
             --primary-color: #8B4513; /* Saddle Brown - Rich, warm brown */
             --secondary-color: #D2691E; /* Chocolate - Warm orange-brown */
@@ -31,13 +31,13 @@
             --text-dark: #333333;
             --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
-
+    
         body {
             line-height: 1.6;
             color: var(--text-dark);
             font-family: 'Poppins', sans-serif;
         }
-
+    
         .header {
             background-color: var(--primary-color);
             color: var(--text-light);
@@ -47,32 +47,32 @@
             top: 0;
             z-index: 1000;
         }
-
+    
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
-
+    
         .logo img {
             height: 40px;
             width: auto;
             object-fit: contain;
         }
-
+    
         .nav-links a {
             color: white;
             text-decoration: none;
             margin-left: 2rem;
             transition: opacity 0.3s;
         }
-
+    
         .nav-links a:hover {
             opacity: 0.8;
         }
-
+    
         .hero {
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             background: var(--gradient-primary);
@@ -110,26 +110,26 @@
                 margin-top: 2rem;
             }
         }
-
+    
         .hero-content {
             max-width: 600px;
             margin-bottom: 4rem;
         }
-
+    
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
             line-height: 1.2;
             font-weight: 700;
         }
-
+    
         .hero p {
             font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 2rem;
             max-width: 600px;
             font-weight: 400;
         }
-
+    
         .cta-button {
             background-color: var(--text-light);
             color: var(--primary-color);
@@ -141,22 +141,24 @@
             transition: transform 0.3s, box-shadow 0.3s;
             font-weight: 500;
         }
-
+    
         .cta-button:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             background-color: var(--light-color);
         }
-
+    
         .features {
             max-width: 1200px;
             margin: 4rem auto;
             padding: 0 2rem;
+        }
+        .features-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-
+    
         .feature-card {
             background-color: var(--light-color);
             padding: 2rem;
@@ -165,18 +167,18 @@
             transition: transform 0.3s;
             border: 1px solid var(--accent-color);
         }
-
+    
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
         }
-
+    
         .feature-card h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-weight: 600;
         }
-
+    
         .footer {
             background-color: var(--primary-color);
             color: var(--text-light);
@@ -184,30 +186,30 @@
             padding: 2rem;
             margin-top: 4rem;
         }
-
+    
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
-
+    
         .footer-section {
             text-align: left;
         }
-
+    
         .footer-section h3 {
             color: var(--light-color);
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
-
+    
         .social-links {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
-
+    
         .social-links a {
             position: relative;
             display: inline-block;
@@ -216,7 +218,7 @@
             transition: color 0.3s;
             text-decoration: underline;
         }
-
+    
         .social-links a::after {
             content: '';
             display: block;
@@ -230,11 +232,11 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-
+    
         .social-links a:hover::after {
             opacity: 1;
         }
-
+    
         #map {
             height: 300px;
             width: 100%;
@@ -242,29 +244,29 @@
             margin-top: 1rem;
             border: none;
         }
-
+    
         /* Navbar Styles */
         .navbar {
             background-color: transparent !important;
             padding: 0.5rem 0;
             transition: all 0.3s ease;
         }
-
+    
         .navbar.scrolled {
             background-color: var(--primary-color) !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
+    
         .navbar .container {
             padding: 0 2rem;
         }
-
+    
         .navbar-brand {
             color: var(--text-light) !important;
             font-weight: 600;
             font-size: 1.2rem;
         }
-
+    
         .nav-link {
             color: var(--text-light) !important;
             padding: 0.5rem 1rem !important;
@@ -273,7 +275,7 @@
             position: relative;
             text-decoration: underline;
         }
-
+    
         .nav-link::after {
             content: '';
             position: absolute;
@@ -285,23 +287,23 @@
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
-
+    
         .nav-link:hover::after {
             width: 100%;
         }
-
+    
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
-
+    
         .logo img {
             height: 40px;
             width: auto;
             object-fit: contain;
         }
-
+    
         /* Tablet Styles */
         @media (max-width: 991px) {
             .navbar-collapse {
@@ -310,22 +312,31 @@
                 border-radius: 0 0 10px 10px;
                 margin-top: 0.5rem;
             }
-
+    
             .navbar-toggler {
                 border-color: var(--text-light);
             }
-
+    
             .navbar-toggler-icon {
                 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .footer-section {
+                text-align: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
         }
-
+    
         /* Mobile Styles */
         @media (max-width: 768px) {
             .navbar .container {
                 padding: 0 1rem;
             }
-
+    
             .logo img {
                 height: 35px;
             }
@@ -333,18 +344,18 @@
             .logo .navbar-brand {
                 font-size: 1rem;
             }
-
+    
             .nav-link {
                 padding: 0.5rem !important;
             }
-
+    
             .navbar-collapse {
                 background-color: var(--primary-color);
                 margin-top: 0.5rem;
                 padding: 1rem;
                 border-radius: 0 0 10px 10px;
             }
-
+    
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -352,27 +363,27 @@
             .footer-section {
                 text-align: center;
             }
-
+    
             .social-links {
                 justify-content: center;
             }
         }
-
+    
         /* Small Mobile Styles */
         @media (max-width: 576px) {
             .navbar .container {
                 padding: 0 0.5rem;
             }
-
+    
             .logo img {
                 height: 30px;
             }
-
+    
             .logo .navbar-brand {
                 font-size: 0.9rem;
             }
         }
-
+    
         @media (max-width: 480px) {
             .hero {
                 padding: 4rem 1rem;
@@ -386,13 +397,72 @@
                 font-size: 1rem;
             }
         }
-
+        .faq-section {
+            padding: 5rem 0;
+            background-color: #fff);
+        }
+    
+        .accordion {
+            background: none;
+            border: none;
+        }
+    
+        .accordion-item {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(139, 69, 19, 0.08);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--accent-color);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+    
+        .accordion-item:focus-within,
+        .accordion-item:hover {
+            box-shadow: 0 4px 24px rgba(139, 69, 19, 0.15);
+            border-color: var(--secondary-color);
+        }
+    
+        .accordion-header {
+            background: none;
+            border: none;
+        }
+    
+        .accordion-button {
+            background: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.15rem;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            box-shadow: none;
+            transition: background 0.2s, color 0.2s;
+        }
+    
+        .accordion-button:not(.collapsed) {
+            background: var(--light-color);
+            color: var(--secondary-color);
+        }
+    
+        .accordion-button:focus {
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+    
+        .accordion-body {
+            background: #fff;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            padding: 1.2rem 1.5rem;
+            border-top: 1px solid var(--light-color);
+            line-height: 1.7;
+        }
+    
         /* About Section Styles */
         .about-section {
             padding: 5rem 0;
             background-color: var(--light-color);
         }
-
+    
         .about-section .row.align-items-center {
             min-height: 100%;
             align-items: center !important;
@@ -405,24 +475,24 @@
             justify-content: center;
             height: 100%;
         }
-
+    
         .about-content {
             padding: 2rem;
         }
-
+    
         .about-content h2 {
             color: var(--primary-color);
             margin-bottom: 1.5rem;
             font-size: 2.5rem;
         }
-
+    
         .about-content p {
             margin-bottom: 1rem;
             font-size: 1.1rem;
             line-height: 1.8;
             text-align: justify;
         }
-
+    
         .about-image {
             height: 100%;
             display: flex;
@@ -430,7 +500,7 @@
             justify-content: flex-start;
             margin-left: 32px;
         }
-
+    
         .about-image video {
             width: auto;
             max-width: 100%;
@@ -440,19 +510,19 @@
             max-height: 500px;
             display: block;
         }
-
+    
         @media (max-width: 991px) {
             .about-image {
                 margin-left: 0;
             }
         }
-
+    
         /* Products Section Styles */
         .products-section {
             padding: 5rem 0;
             background-color: #fff;
         }
-
+    
         .section-title {
             text-align: center;
             color: var(--primary-color);
@@ -460,7 +530,7 @@
             font-size: 2.5rem;
             font-weight: 600;
         }
-
+    
         .product-card {
             background: white;
             border-radius: 10px;
@@ -470,41 +540,41 @@
             height: 100%;
             border: 1px solid var(--light-color);
         }
-
+    
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15);
         }
-
+    
         .product-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
-
+    
         .product-info {
             padding: 1.5rem;
         }
-
+    
         .product-info h3 {
             color: var(--primary-color);
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
-
+    
         .product-info p {
             color: #666;
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
-
+    
         .price {
             color: var(--secondary-color);
             font-weight: 600;
             font-size: 1.1rem !important;
         }
-
+    
         .btn-primary {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -513,23 +583,23 @@
             transition: all 0.3s ease;
             font-weight: 500;
         }
-
+    
         .btn-primary:hover {
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
             transform: scale(1.05);
         }
-
+    
         @media (max-width: 768px) {
             .about-content {
                 text-align: center;
                 margin-bottom: 2rem;
             }
-
+    
             .about-image {
                 margin-top: 2rem;
             }
-
+    
             .product-card {
                 margin-bottom: 1rem;
             }
@@ -537,10 +607,235 @@
                 padding: 2vw !important;
             }
         }
+    
+        .timeline-section {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            overflow-x: hidden;
+        }
+    
+        .timeline-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    
+        .timeline::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            background: var(--primary-color);
+            top: 40px;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+    
+        .timeline-item {
+            position: relative;
+            flex: 1;
+            min-width: 200px;
+            padding-top: 60px;
+        }
+    
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            left: 50%;
+            top: 40px;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+    
+        .timeline-item:hover .timeline-dot {
+            background: var(--secondary-color);
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+    
+        .timeline-content {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+    
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+    
+        .timeline-subtitle {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            text-align: center;
+        }
+    
+        .timeline-content p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+        }
+    
+        @media (max-width: 992px) {
+            .timeline {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+    
+            .timeline-item {
+                flex: 0 0 calc(50% - 1rem);
+                margin-bottom: 2rem;
+            }
+    
+            .timeline::before {
+                display: none;
+            }
+    
+            .timeline-dot {
+                top: 0;
+            }
+    
+            .timeline-item {
+                padding-top: 30px;
+            }
+        }
+    
+        @media (max-width: 576px) {
+            .timeline-item {
+                flex: 0 0 100%;
+            }
+        }
+
+        .testimonials-section {
+            background: var(--light-color);
+            padding: 5rem 0 3rem 0;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(139, 69, 19, 0.10);
+            border: 1px solid var(--accent-color);
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.25s, box-shadow 0.25s;
+            min-height: 350px;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(139, 69, 19, 0.18);
+        }
+
+        .testimonial-image img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.10);
+        }
+
+        .testimonial-content {
+            text-align: center;
+        }
+
+        .rating {
+            color: #FFD700;
+            font-size: 1.3rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 0;
+            margin-top: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1.5rem;
+            gap: 1.5rem;
+        }
+
+        .carousel-control-prev, .carousel-control-next {
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3rem;
+            transition: background 0.2s;
+        }
+        .carousel-control-prev:hover, .carousel-control-next:hover {
+            background: var(--secondary-color);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-indicators button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: none;
+            background: var(--accent-color);
+            opacity: 0.5;
+            transition: opacity 0.2s, background 0.2s;
+        }
+        .carousel-indicators .active {
+            opacity: 1;
+            background: var(--primary-color);
+        }
     </style>
 </head>
 <body>
-    <!-- Bootstrap Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" data-aos="fade-down" data-aos-duration="1000">
         <div class="container-fluid navbar-container px-5">
             <div class="logo">
@@ -562,12 +857,13 @@
                         <a class="nav-link" href="community.html">Komunitas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#footer">Kontak</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
 <section class="hero" id="home">
         <div class="container hero-container">
             <div class="row align-items-center">
@@ -608,7 +904,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="about-content">
-                        <h2>Tentang Kami</h2>
+                        <h2 class="section-title">Tentang Kami</h2>
                         <p>Nasi Kebuli AJB (Ajibarang) adalah usaha kuliner yang berdedikasi untuk menyajikan hidangan Nasi Kebuli dengan cita rasa autentik Timur Tengah. Berdiri sejak tahun 2020, kami telah melayani ribuan pelanggan dengan komitmen untuk selalu menggunakan bahan-bahan berkualitas dan menjaga konsistensi rasa.</p>
                         <p>Dengan pengalaman selama hampir 5 tahun dalam industri kuliner, kami terus berinovasi untuk memberikan pengalaman makan nasi kebuli terlezat dengan harga terbaik bagi pelanggan kami.</p>
                     </div>
@@ -625,19 +921,74 @@
         </div>
     </section>
 
+    <div class="timeline-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <h2 class="section-title">Perjalanan Kami</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2020</h4>
+                    <p class="timeline-subtitle">Awal Mula</p>
+                    <p>Nasi Kebuli AJB dirintis sebagai usaha rumahan saat pandemi. Berawal dari dapur keluarga, penjualan dilakukan lewat sistem pre-order dan online.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2021-2022</h4>
+                    <p class="timeline-subtitle">Perkembangan Digital</p>
+                    <p>Usaha terus berjalan dengan promosi digital dan mulai dikenal di kalangan warga serta mahasiswa sekitar Purwokerto, terutama UMP dan UHB.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2023</h4>
+                    <p class="timeline-subtitle">Ekspansi Event</p>
+                    <p>Mulai aktif ikut event kampus seperti bazar dan Sunmor di UMP. Dari sini muncul ide untuk membuka stand tetap di sekitar kampus.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2024</h4>
+                    <p class="timeline-subtitle">Stand Tetap</p>
+                    <p>Kebuli AJB resmi hadir di lingkungan UMP. Respon pasar sangat baik, terutama dari mahasiswa. Mulai rutin melayani pesanan event dan konsumsi harian.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>2025</h4>
+                    <p class="timeline-subtitle">Visi Ke Depan</p>
+                    <p>Fokus pada penguatan brand, pengembangan produk baru, dan rencana kemitraan dengan mahasiswa sebagai bagian dari ekspansi usaha.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
     <section class="features">
+        <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Mengapa Nasi Kebuli AJB?</h2>
+        <div class="features-row">
         <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
-            <h3>Wide Selection</h3>
-            <p>Browse through thousands of products from trusted sellers</p>
+            <h3>Harga Ramah</h3>
+            <p>Harga per porsi yang murah namun rasa dan kualitas tidak diragukan</p>
         </div>
         <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <h3>Secure Shopping</h3>
-            <p>Shop with confidence with our secure payment system</p>
+            <h3>Dekat Kampus</h3>
+            <p>Akses mudah dijangkau dan dekat dengan kampus dan pemukiman sekitar</p>
         </div>
         <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-            <h3>Fast Delivery</h3>
-            <p>Get your products delivered quickly and reliably</p>
+            <h3>Gratis Pengantaran Area UMP</h3>
+            <p>Bebas ongkos kirim seluruh area Universitas Muhammadiyah Purwokerto</p>
         </div>
+        </div>  
     </section>
 
     <!-- Favorite Products Section -->
@@ -682,7 +1033,220 @@
         </div>
     </section>
 
-    <footer class="footer" data-aos="fade-up" data-aos-duration="1000">
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Testimoni Pelanggan</h2>
+            
+            <!-- Desktop View -->
+            <div class="row d-none d-md-flex">
+                <!-- Testimonial 1 -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img height="100px" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3" alt="Customer 1">
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Enak nasinya, makin berasa rempahnya, kering kentangnya kriuk pedes, sambelnya nagih, ayam krispy nya juga kriuk, ga keras, dagingnya tetep empuk. Rasanya ga cukup seporsi kalo makan nasi kebuli, pengen nambah lagii"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img height="100px" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3" alt="Customer 2">
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Nasinya enak + gurih, sambelnya enakk. Kemaren aku pesen yang varian telor, untuk harga segitu pas aja sih. Bisaa kalo order lagii"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img height="100px" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3" alt="Customer 3">
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="testimonial-text">"Kemaren aku udah nyobain nasi kebuli AJB bareng temen-temen, 11/10 sii enak banget mana harganya ramah lagii"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Carousel View -->
+            <div class="d-md-none">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Testimonial 1 -->
+                        <div class="carousel-item active">
+                            <div class="testimonial-card">
+                                <div class="testimonial-image">
+                                    <img height="100px" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3" alt="Customer 1">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Nasi Kebuli Ajibarang benar-benar luar biasa! Rasa rempahnya sangat autentik dan dagingnya empuk. Sudah menjadi menu favorit keluarga kami."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <div class="testimonial-image">
+                                    <img height="100px" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3" alt="Customer 2">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Kualitas konsisten setiap kali saya memesan. Pelayanan cepat dan ramah. Nasi Kebuli Ajibarang selalu menjadi pilihan untuk acara keluarga."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <div class="testimonial-image">
+                                    <img height="100px" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3" alt="Customer 3">
+                                </div>
+                                <div class="testimonial-content">
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <p class="testimonial-text">"Rasa Nasi Kebuli Ajibarang sangat otentik, persis seperti yang saya makan di Timur Tengah. Bumbunya sangat kaya dan aromatik."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <div class="carousel-controls">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- FAQ Section -->
+     <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Pertanyaan Umum</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                    Bukanya hari apa aja kak?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Kami buka setiap hari kecuali hari sabtu ya kak, mulai dari jam 09:00 - 20:00 WIB
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                    Bisa DO gak kak?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Bisa kak, dan free ongkir khusus area kampus 1 Universitas Muhammadiyah Purwokerto
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                    Lokasinya dimana kak?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Di belakang UMP kak, dari perempatan lampu merah belok ke arah selatan tidak jauh dari situ belok ke arah timur tinggal lurus aja kak, buat titik pastinya ada di google maps ya kak, link nya ada di bio Instagram @nasikebuliajb
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                    Best Seller nya apa kak?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Nasi kebuli ayam geprek, cuma 12ribuan aja, yok Cobain
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" data-aos="fade-up" data-aos-duration="1000" id="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -748,6 +1312,10 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        document.getElementById('shopNowBtn').addEventListener('click', function() {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>
