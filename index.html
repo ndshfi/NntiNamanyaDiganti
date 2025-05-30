@@ -64,6 +64,7 @@
         .hero {
             background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
             color: white;
+<<<<<<< HEAD
             padding: 8rem 2rem 4rem;
             text-align: center;
             position: relative;
@@ -95,33 +96,57 @@
             border-radius: 15px;
             backdrop-filter: blur(5px);
             text-align: right;
+=======
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 6rem 4rem;
+            text-align: left;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin-bottom: 4rem;
+>>>>>>> 5dd383b090e87a9f5ee9815679aad6742560ae3d
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
+<<<<<<< HEAD
             color: white;
+=======
+            line-height: 1.2;
+>>>>>>> 5dd383b090e87a9f5ee9815679aad6742560ae3d
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 2rem;
+<<<<<<< HEAD
             color: white;
+=======
+            max-width: 600px;
+>>>>>>> 5dd383b090e87a9f5ee9815679aad6742560ae3d
         }
 
         .cta-button {
             background-color: white;
             color: var(--primary-blue);
-            padding: 1rem 2rem;
+            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
             border: none;
             border-radius: 5px;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2vw, 1.1rem);
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .cta-button:hover {
             transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .features {
@@ -200,12 +225,34 @@
 
         @media (max-width: 768px) {
             .hero {
+<<<<<<< HEAD
                 padding: 6rem 1rem 3rem;
+=======
+                padding: 5rem 1rem;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
             }
+            
+            .hero-content {
+                margin-bottom: 0;
+            }
+            
+            .nav-links {
+                display: none;
+>>>>>>> 5dd383b090e87a9f5ee9815679aad6742560ae3d
+            }
+        }
 
+        @media (max-width: 480px) {
+            .hero {
+                padding: 4rem 1rem;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
             }
+<<<<<<< HEAD
 
             .hero p {
                 font-size: 1rem;
@@ -253,6 +300,12 @@
             .spline-container {
                 height: 100vh;
             }
+=======
+            
+            .hero p {
+                font-size: 1rem;
+            }
+>>>>>>> 5dd383b090e87a9f5ee9815679aad6742560ae3d
         }
     </style>
 </head>
@@ -284,6 +337,7 @@
     </nav>
 
     <section class="hero" id="home">
+<<<<<<< HEAD
         <div class="spline-container">
             <iframe src='https://my.spline.design/untitled-XkGchnsNzJpayAMSMiikEhJv/' frameborder='0'></iframe>
         </div>
@@ -297,6 +351,12 @@
                     </div>
                 </div>
             </div>
+=======
+        <div class="hero-content">
+            <h1>Welcome to MarketPlace</h1>
+            <p>Your one-stop destination for all your shopping needs</p>
+            <button class="cta-button" id="shopNowBtn">Shop Now</button>
+>>>>>>> 5dd383b090e87a9f5ee9815679aad6742560ae3d
         </div>
     </section>
 
