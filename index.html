@@ -3,32 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test - 3D Nasi Kebuli Ajb</title>
-    <!-- Favicon -->
+    <title>Nasi Kebuli AJB</title>
     <link rel="icon" type="image/png" href="logo/logo-nasi-kebuli-ajb.png">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         :root {
-            --primary-blue: #1a73e8;
-            --secondary-blue: #4285f4;
-            --light-blue: #e8f0fe;
+            --primary-color: #8B4513; /* Saddle Brown - Rich, warm brown */
+            --secondary-color: #D2691E; /* Chocolate - Warm orange-brown */
+            --accent-color: #CD853F; /* Peru - Light brown */
+            --light-color: #F5DEB3; /* Wheat - Light beige */
+            --dark-color: #654321; /* Dark Brown */
+            --text-light: #FFFFFF;
+            --text-dark: #333333;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
 
         body {
             line-height: 1.6;
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
         }
 
         .header {
-            background-color: var(--primary-blue);
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--text-light);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -36,24 +48,22 @@
             z-index: 1000;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .logo {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            gap: 0.75rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links a {
-            color: whitebf;
+            color: white;
             text-decoration: none;
-            main-left: 2rem;
+            margin-left: 2rem;
             transition: opacity 0.3s;
         }
 
@@ -62,67 +72,80 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: white;
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-primary);
+            color: var(--text-light);
+            padding: 0;
         }
-
-        .hero .container {
-            position: relative;
-            z-index: 2;
+        .hero-container {
+            width: 100%;
+            padding: 0 2rem;
         }
-
-        .spline-container {
-            position: absolute;
-            top: 0;
-            right: 0;
+        .hero-img {
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-img spline-viewer {
             width: 100%;
             height: 100%;
-            z-index: 1;
+            min-height: 300px;
+            max-height: 500px;
         }
-
-        .spline-container iframe {
-            width: 100%;
-            height: 100%;
+        @media (max-width: 991px) {
+            .hero-img {
+                height: 250px;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero .row {
+                flex-direction: column;
+            }
+            .hero-img {
+                height: 200px;
+                margin-top: 2rem;
+            }
         }
 
         .hero-content {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-            text-align: right;
+            max-width: 600px;
+            margin-bottom: 4rem;
         }
 
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
-            color: white;
+            line-height: 1.2;
+            font-weight: 700;
         }
 
         .hero p {
             font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 2rem;
-            color: white;
+            max-width: 600px;
+            font-weight: 400;
         }
 
         .cta-button {
-            background-color: white;
-            color: var(--primary-blue);
-            padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+            background-color: var(--text-light);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
             border: none;
             border-radius: 5px;
-            font-size: clamp(1rem, 2vw, 1.1rem);
+            font-size: 1.1rem;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 500;
         }
 
         .cta-button:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background-color: var(--light-color);
         }
 
         .features {
@@ -135,73 +158,218 @@
         }
 
         .feature-card {
-            background-color: var(--light-blue);
+            background-color: var(--light-color);
             padding: 2rem;
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s;
+            border: 1px solid var(--accent-color);
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
         }
 
         .feature-card h3 {
-            color: var(--primary-blue);
+            color: var(--primary-color);
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .footer {
-            background-color: var(--primary-blue);
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--text-light);
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
         }
 
-        /* Bootstrap Overrides */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--light-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            position: relative;
+            display: inline-block;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+            text-decoration: underline;
+        }
+
+        .social-links a::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2px;
+            height: 2px;
+            background: var(--light-color);
+            border-radius: 2px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover::after {
+            opacity: 1;
+        }
+
+        #map {
+            height: 300px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: none;
+        }
+
+        /* Navbar Styles */
         .navbar {
-            background-color: var(--primary-blue) !important;
+            background-color: transparent !important;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            padding: 0 2rem;
         }
 
         .navbar-brand {
-            color: white !important;
-            font-weight: bold;
+            color: var(--text-light) !important;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
         .nav-link {
-            color: white !important;
+            color: var(--text-light) !important;
+            padding: 0.5rem 1rem !important;
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+            text-decoration: underline;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 2.5rem;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--text-light);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background-color: var(--primary-color);
+                padding: 1rem;
+                border-radius: 0 0 10px 10px;
+                margin-top: 0.5rem;
+            }
+
+            .navbar-toggler {
+                border-color: var(--text-light);
+            }
+
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .navbar .container {
+                padding: 0 1rem;
+            }
+
+            .logo img {
+                height: 35px;
             }
             
-            .hero p {
-                font-size: 1.1rem;
+            .logo .navbar-brand {
+                font-size: 1rem;
             }
-        }
 
-        @media (max-width: 992px) {
-            .hero-content {
+            .nav-link {
+                padding: 0.5rem !important;
+            }
+
+            .navbar-collapse {
+                background-color: var(--primary-color);
+                margin-top: 0.5rem;
+                padding: 1rem;
+                border-radius: 0 0 10px 10px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-section {
                 text-align: center;
-                margin: 0 auto;
             }
 
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .features {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            .social-links {
+                justify-content: center;
             }
         }
 
-        @media (max-width: 768px) {
-            .hero {
-                padding: 6rem 1rem 3rem;
+        /* Small Mobile Styles */
+        @media (max-width: 576px) {
+            .navbar .container {
+                padding: 0 0.5rem;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+
+            .logo .navbar-brand {
+                font-size: 0.9rem;
             }
         }
 
@@ -213,74 +381,185 @@
             .hero h1 {
                 font-size: 2rem;
             }
-
+            
             .hero p {
                 font-size: 1rem;
             }
+        }
 
-            .hero-content {
-                padding: 1.5rem;
-            }
+        /* About Section Styles */
+        .about-section {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
 
-            .cta-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
+        .about-section .row.align-items-center {
+            min-height: 100%;
+            align-items: center !important;
+            display: flex;
+            justify-content: center;
+        }
+        .about-content, .about-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
 
-            .features {
-                padding: 0 1rem;
-                gap: 1rem;
-            }
+        .about-content {
+            padding: 2rem;
+        }
 
-            .feature-card {
-                padding: 1.5rem;
+        .about-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .about-image {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-left: 32px;
+        }
+
+        .about-image video {
+            width: auto;
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 200px;
+            max-height: 500px;
+            display: block;
+        }
+
+        @media (max-width: 991px) {
+            .about-image {
+                margin-left: 0;
             }
         }
 
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-content {
-                padding: 1rem;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .navbar-brand {
-                font-size: 1.2rem;
-            }
+        /* Products Section Styles */
+        .products-section {
+            padding: 5rem 0;
+            background-color: #fff;
         }
 
-        /* Fix for Spline container on mobile */
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+            border: 1px solid var(--light-color);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1.1rem !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
-            .spline-container {
-                height: 100vh;
+            .about-content {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+            .about-image {
+                margin-top: 2rem;
+            }
+
+            .product-card {
+                margin-bottom: 1rem;
+            }
+            .navbar-container {
+                padding: 2vw !important;
             }
         }
     </style>
 </head>
 <body>
     <!-- Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Nasi Kebuli Ajb</a>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container-fluid navbar-container px-5">
+            <div class="logo">
+                <img src="logo/logo-nasi-kebuli-ajb.png" alt="Logo Nasi Kebuli Ajibarang" class="img-fluid">
+                <a class="navbar-brand" href="#">Nasi Kebuli Ajibarang</a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Beranda</a>
+                        <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#products">Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">Komunitas</a>
+                        <a class="nav-link" href="community.html">Komunitas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -289,18 +568,57 @@
             </div>
         </div>
     </nav>
-
-    <section class="hero" id="home">
-        <div class="spline-container">
-            <iframe src='https://my.spline.design/untitled-XkGchnsNzJpayAMSMiikEhJv/' frameborder='0'></iframe>
-        </div>
-        <div class="container">
-            <div class="row justify-content-end">
+<section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="hero-content">
-                        <h1>Nasi Kebuli Ajb</h1>
-                        <p>Your one-stop destination for all your shopping needs</p>
-                        <button class="cta-button" id="shopNowBtn">Shop Now</button>
+                    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                        <h1>Nasi Kebuli Ajibarang</h1>
+                        <p>Nikmati kelezatan Nasi Kebuli dengan cita rasa autentik Timur Tengah. Pesan sekarang untuk pengalaman kuliner yang tak terlupakan!</p>
+                        <button class="cta-button" id="shopNowBtn">Lihat Lebih Jauh</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-img">
+                        <spline-viewer 
+                            url="https://prod.spline.design/XGLZZY7LvhgdUYco/scene.splinecode"
+                            events-target="global"
+                            camera-position="[0,0,5]"
+                            camera-target="[0,0,0]"
+                            disable-zoom="true"
+                            disable-pan="true"
+                            disable-orbit="true"
+                            loading-anim-type="spinner"
+                            loading-anim-background="transparent"
+                        ></spline-viewer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Spline Viewer Script -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="about-content">
+                        <h2>Tentang Kami</h2>
+                        <p>Nasi Kebuli AJB (Ajibarang) adalah usaha kuliner yang berdedikasi untuk menyajikan hidangan Nasi Kebuli dengan cita rasa autentik Timur Tengah. Berdiri sejak tahun 2020, kami telah melayani ribuan pelanggan dengan komitmen untuk selalu menggunakan bahan-bahan berkualitas dan menjaga konsistensi rasa.</p>
+                        <p>Dengan pengalaman selama hampir 5 tahun dalam industri kuliner, kami terus berinovasi untuk memberikan pengalaman makan nasi kebuli terlezat dengan harga terbaik bagi pelanggan kami.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="about-image">
+                        <video autoplay loop muted playsinline class="img-fluid rounded">
+                            <source src="video/video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
             </div>
@@ -308,29 +626,110 @@
     </section>
 
     <section class="features">
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
             <h3>Wide Selection</h3>
             <p>Browse through thousands of products from trusted sellers</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <h3>Secure Shopping</h3>
             <p>Shop with confidence with our secure payment system</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
             <h3>Fast Delivery</h3>
             <p>Get your products delivered quickly and reliably</p>
         </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2024 MarketPlace. All rights reserved.</p>
+    <!-- Favorite Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Produk Favorit</h2>
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-6 col-md-4 mb-3">
+                    <div class="product-card">
+                        <img src="produk/produk-2/kebuli ayam ori harga 12.000.jpg" alt="Nasi Kebuli Special" class="product-image">
+                        <div class="product-info">
+                            <h3>Nasi Kebuli Ayam Original</h3>
+                            <p>Nasi Kebuli dengan daging ayam original dan rempah-rempah pilihan</p>
+                            <p class="price">Rp 12.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 mb-3">
+                    <div class="product-card">
+                        <img src="produk/produk-1/kebuli ayam krispi harga 12.000.jpg" alt="Nasi Kebuli Ayam" class="product-image">
+                        <div class="product-info">
+                            <h3>Nasi Kebuli Ayam Krispi</h3>
+                            <p>Nasi Kebuli dengan daging ayam krispi dan bumbu rahasia</p>
+                            <p class="price">Rp 12.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 mb-3">
+                    <div class="product-card">
+                        <img src="produk/produk-4/kebuli ayam katsu harga 12.000.jpg" alt="Nasi Kebuli Ayam Katsu" class="product-image">
+                        <div class="product-info">
+                            <h3>Nasi Kebuli Ayam Katsu</h3>
+                            <p>Nasi Kebuli dengan potongan ayam katsu.</p>
+                            <p class="price">Rp 12.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                <a href="#products" class="btn btn-primary btn-lg">Lihat Semua Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Lokasi Kami</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15826.090788214553!2d109.24007526625108!3d-7.4072521529351745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655fcabb5fbda3%3A0x9146682eaeaef311!2sKEBULI%20AJB%20UMP!5e0!3m2!1sen!2sid!4v1748591141706!5m2!1sen!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="footer-section">
+                    <h3>Temukan Kami</h3>
+                    <p>Belakang Universitas Muhammadiyah Purwokerto</p>
+                    <p>Jl. Tegal Sari, Dusun III</p>
+                    <p>Dukuhwaluh, Kembaran, Banyumas</p>
+                    <p>Jawa Tengah, Indonesia</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/6283822457915" target="_blank" title="Whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/nasikebuliajb/" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@kebuliajb" target="_blank" title="Tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://gofood.co.id/purwokerto/restaurant/kebuli-ajb-ump-jl-tegalsari-dukuhwaluh-3e9f6eea-3a96-41e6-8676-d1fddde26058?page=76" target="_blank" title="GoFood">
+                            <img src="logo/gojek.png" alt="GoFood" style="height: 28px; width: auto; border-radius: 50%; background: #fff; padding: 2px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p>&copy; 2025 TIM NNTI NAMANYA DIGANTI. All rights reserved.</p>
+        </div>
     </footer>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <!-- Vanilla JavaScript -->
     <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 1000,
+            easing: 'ease-in-out'
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -341,39 +740,13 @@
             });
         });
 
-        // Shop Now button click handler
-        document.getElementById('shopNowBtn').addEventListener('click', function() {
-            alert('Welcome to our marketplace! Browse our products now.');
-        });
-
-        // Add animation to feature cards on scroll
-        const observerOptions = {
-            threshold: 0.5
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.5s ease-out';
-            observer.observe(card);
-        });
-
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.style.backgroundColor = 'rgba(26, 115, 232, 0.95)';
+                navbar.classList.add('scrolled');
             } else {
-                navbar.style.backgroundColor = 'var(--primary-blue)';
+                navbar.classList.remove('scrolled');
             }
         });
     </script>
