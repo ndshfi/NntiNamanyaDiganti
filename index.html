@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MarketPlace - Test Hosting</title>
+    <title>Test - 3D Nasi Kebuli Ajb</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo/logo-nasi-kebuli-ajb.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -49,9 +51,9 @@
         }
 
         .nav-links a {
-            color: white;
+            color: whitebf;
             text-decoration: none;
-            margin-left: 2rem;
+            main-left: 2rem;
             transition: opacity 0.3s;
         }
 
@@ -64,16 +66,47 @@
             color: white;
             padding: 8rem 2rem 4rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .spline-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .spline-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            text-align: right;
         }
 
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            color: white;
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
+            color: white;
         }
 
         .cta-button {
@@ -154,20 +187,20 @@
     <!-- Bootstrap Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">MarketPlace</a>
+            <a class="navbar-brand" href="#">Nasi Kebuli Ajb</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="#home">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#products">Products</a>
+                        <a class="nav-link" href="#products">Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#about">Komunitas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -178,9 +211,20 @@
     </nav>
 
     <section class="hero" id="home">
-        <h1>Welcome to MarketPlace</h1>
-        <p>Your one-stop destination for all your shopping needs</p>
-        <button class="cta-button" id="shopNowBtn">Shop Now</button>
+        <div class="spline-container">
+            <iframe src='https://my.spline.design/untitled-XkGchnsNzJpayAMSMiikEhJv/' frameborder='0'></iframe>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1>Nasi Kebuli Ajb</h1>
+                        <p>Your one-stop destination for all your shopping needs</p>
+                        <button class="cta-button" id="shopNowBtn">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="features">
