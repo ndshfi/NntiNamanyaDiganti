@@ -172,13 +172,86 @@
             color: white !important;
         }
 
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .features {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .hero {
+                padding: 6rem 1rem 3rem;
             }
 
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .features {
+                padding: 0 1rem;
+                gap: 1rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Fix for Spline container on mobile */
+        @media (max-width: 768px) {
+            .spline-container {
+                height: 100vh;
             }
         }
     </style>
