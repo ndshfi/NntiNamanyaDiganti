@@ -34,6 +34,7 @@
             line-height: 1.6;
             color: var(--text-dark);
             font-family: 'Poppins', sans-serif;
+            overflow-x: hidden !important;
         }
 
         .header {
@@ -80,11 +81,39 @@
             padding: 6rem 4rem;
             text-align: left;
             position: relative;
+            margin-top: 0;
+            overflow: hidden;
+        }
+
+        .hero-img {
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            transform: translateY(-50%) scale(1.5);
+            width: 80%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.8;
+            background: transparent;
+        }
+
+        .hero-img spline-viewer {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         .hero-content {
             max-width: 600px;
             margin-bottom: 4rem;
+            width: 100%;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -110,13 +139,26 @@
             font-size: 1.1rem;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
-            font-weight: 500;
         }
 
         .cta-button:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             background-color: var(--light-color);
+        }
+
+        @media (max-width: 768px) {
+            .cta-button {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
         }
 
         .features {
@@ -214,28 +256,56 @@
             object-fit: contain;
         }
 
-        /* Tablet Styles */
+        .navbar-collapse {
+            z-index: 1001;
+        }
+
         @media (max-width: 991px) {
             .navbar-collapse {
                 background-color: var(--primary-color);
                 padding: 1rem;
                 border-radius: 0 0 10px 10px;
                 margin-top: 0.5rem;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
             }
 
             .navbar-toggler {
                 border-color: var(--text-light);
+                z-index: 1002;
             }
 
             .navbar-toggler-icon {
                 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
+
+            .hero-img {
+                width: 90%;
+                right: -25%;
+                transform: translateY(-50%) scale(1.3);
+            }
         }
 
-        /* Mobile Styles */
         @media (max-width: 768px) {
+            body {
+                overflow-x: hidden !important;
+            }
             .navbar .container {
                 padding: 0 1rem;
+            }
+
+            .hero-img {
+                width: 100%;
+                right: -30%;
+                transform: translateY(-50%) scale(1.2);
+                opacity: 0.4;
+            }
+
+            .hero-content {
+                margin-bottom: 2rem;
             }
 
             .logo img {
@@ -249,19 +319,18 @@
             .nav-link {
                 padding: 0.5rem !important;
             }
-
-            .navbar-collapse {
-                background-color: var(--primary-color);
-                margin-top: 0.5rem;
-                padding: 1rem;
-                border-radius: 0 0 10px 10px;
-            }
         }
 
-        /* Small Mobile Styles */
         @media (max-width: 576px) {
             .navbar .container {
                 padding: 0 0.5rem;
+            }
+
+            .hero-img {
+                width: 110%;
+                right: -35%;
+                transform: translateY(-50%) scale(1.1);
+                opacity: 0.3;
             }
 
             .logo img {
@@ -405,6 +474,108 @@
                 padding: 2vw !important;
             }
         }
+
+        /* Testimonials Section Styles */
+        .testimonials-section {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            font-family: serif;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
+        }
+
+        .testimonial-card:hover::before {
+            transform: scale(1.2);
+            opacity: 0.2;
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover .testimonial-image {
+            transform: scale(1.1);
+            border-color: var(--secondary-color);
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-content {
+            text-align: center;
+        }
+
+        .rating {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .customer-name {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .customer-title {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .testimonial-image {
+                width: 60px;
+                height: 60px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -438,12 +609,28 @@
     </nav>
 
     <section class="hero" id="home">
+        <div class="hero-img">
+            <spline-viewer 
+                url="https://prod.spline.design/XGLZZY7LvhgdUYco/scene.splinecode"
+                events-target="global"
+                camera-position="[0,0,5]"
+                camera-target="[0,0,0]"
+                disable-zoom="true"
+                disable-pan="true"
+                disable-orbit="true"
+                loading-anim-type="spinner"
+                loading-anim-background="transparent"
+            ></spline-viewer>
+        </div>
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
             <h1>Nasi Kebuli Ajibarang</h1>
             <p>Nikmati kelezatan Nasi Kebuli dengan cita rasa autentik Timur Tengah. Pesan sekarang untuk pengalaman kuliner yang tak terlupakan!</p>
             <button class="cta-button" id="shopNowBtn">Lihat Lebih Jauh</button>
         </div>
     </section>
+
+    <!-- Add Spline Viewer Script -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
 
     <!-- About Us Section -->
     <section class="about-section" id="about">
@@ -456,7 +643,7 @@
                         <p>Dengan pengalaman lebih dari 3 tahun dalam industri kuliner, kami terus berinovasi untuk memberikan pengalaman makan terbaik bagi pelanggan kami.</p>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                     <div class="about-image">
                         <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3" alt="Nasi Kebuli" class="img-fluid rounded">
                     </div>
@@ -532,6 +719,77 @@
             </div>
             <div class="text-center mt-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
                 <a href="#products" class="btn btn-primary btn-lg">Lihat Semua Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Testimoni Pelanggan</h2>
+            <div class="row">
+                <!-- Testimonial 1 -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3" alt="Customer 1">
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Nasi Kebuli Ajibarang benar-benar luar biasa! Rasa rempahnya sangat autentik dan dagingnya empuk. Sudah menjadi menu favorit keluarga kami."</p>
+                            <h4 class="customer-name">Ahmad Rizki</h4>
+                            <p class="customer-title">Pelanggan Setia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3" alt="Customer 2">
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Kualitas konsisten setiap kali saya memesan. Pelayanan cepat dan ramah. Nasi Kebuli Ajibarang selalu menjadi pilihan untuk acara keluarga."</p>
+                            <h4 class="customer-name">Siti Nurhaliza</h4>
+                            <p class="customer-title">Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3" alt="Customer 3">
+                        </div>
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="testimonial-text">"Rasa Nasi Kebuli Ajibarang sangat otentik, persis seperti yang saya makan di Timur Tengah. Bumbunya sangat kaya dan aromatik."</p>
+                            <h4 class="customer-name">Budi Santoso</h4>
+                            <p class="customer-title">Chef Profesional</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
