@@ -65,10 +65,16 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 6rem 1rem;
-            text-align: center;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 6rem 4rem;
+            text-align: left;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin-bottom: 4rem;
         }
 
         .hero h1 {
@@ -81,7 +87,6 @@
             font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 2rem;
             max-width: 600px;
-            padding: 0 1rem;
         }
 
         .cta-button {
@@ -151,6 +156,13 @@
         @media (max-width: 768px) {
             .hero {
                 padding: 5rem 1rem;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin-bottom: 0;
             }
             
             .nav-links {
@@ -201,9 +213,11 @@
     </nav>
 
     <section class="hero" id="home">
-        <h1>Welcome to MarketPlace</h1>
-        <p>Your one-stop destination for all your shopping needs</p>
-        <button class="cta-button" id="shopNowBtn">Shop Now</button>
+        <div class="hero-content">
+            <h1>Welcome to MarketPlace</h1>
+            <p>Your one-stop destination for all your shopping needs</p>
+            <button class="cta-button" id="shopNowBtn">Shop Now</button>
+        </div>
     </section>
 
     <section class="features">
